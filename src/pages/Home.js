@@ -15,7 +15,7 @@ function Home() {
   const [newQuantity, setNewQuantity] = useState(0);
 
   const addInventory = () => {
-    Axios.post('https://git.heroku.com/crud-inventory-tracker1.git/create', {
+    Axios.post('https://crud-inventory-tracker1.herokuapp.com/create', {
       inventoryName: inventoryName,
       name: name,
       category: category,
@@ -27,13 +27,13 @@ function Home() {
   };
 
   const getInventory = () => {
-    Axios.get("https://git.heroku.com/crud-inventory-tracker1.git/inventory").then((response) => {
+    Axios.get("https://crud-inventory-tracker1.herokuapp.com/inventory").then((response) => {
       setInventoryList(response.data);
     });
   }
 
   const updateQuantity = (id) => {
-    Axios.put("https://git.heroku.com/crud-inventory-tracker1.git/update", {quantity: newQuantity, id: id}).then((response) => {
+    Axios.put("https://crud-inventory-tracker1.herokuapp.com/update", {quantity: newQuantity, id: id}).then((response) => {
       setInventoryList(inventoryList.map((val) => {
         return val.id === id ? {
           id: val.id, 
@@ -49,7 +49,7 @@ function Home() {
   };
 
   const deleteInventory = (id) => {
-    Axios.delete(`https://git.heroku.com/crud-inventory-tracker1.git/delete/${id}`).then((response) => {
+    Axios.delete(`https://crud-inventory-tracker1.herokuapp.com/delete/${id}`).then((response) => {
       setInventoryList(
         inventoryList.filter((val) => {
           return val.id !== id;

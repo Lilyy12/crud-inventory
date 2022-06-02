@@ -10,7 +10,7 @@ import Axios from 'axios';
 
     //add info about Inventory and warehouse location to location table:
     const addLocation = () => {
-        Axios.post('https://git.heroku.com/crud-inventory-tracker1.git/create/location', {
+        Axios.post('https://crud-inventory-tracker1.herokuapp.com/create/location', {
             inventoryName: inventoryName,
             location: location
         }).then((() => {
@@ -20,7 +20,7 @@ import Axios from 'axios';
 
     //get inventory from inventory table and fetch it to radio list:
     const getInventory = () => {
-        Axios.get("https://git.heroku.com/crud-inventory-tracker1.git/inventory").then((response) => {
+        Axios.get("https://crud-inventory-tracker1.herokuapp.com/inventory").then((response) => {
           setInventoryList(response.data);
         });
       }
